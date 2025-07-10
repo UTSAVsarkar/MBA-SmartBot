@@ -7,7 +7,7 @@ import faiss
 import tempfile
 import os
 
-st.title("📘 MBA – Case Study Q&A")
+st.title("📘 MBA – SmartBot")
 st.markdown("Upload a case study PDF and ask business questions!")
 
 # Load embedding & QA models
