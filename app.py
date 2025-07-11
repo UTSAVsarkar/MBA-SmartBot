@@ -3,7 +3,6 @@ from utils.pdf_loader import load_and_chunk_pdfs
 from utils.embedder import embed_chunks, build_faiss_index, retrieve_chunks
 from utils.qa_engine import answer_with_roberta
 from sentence_transformers import SentenceTransformer
-import faiss
 import tempfile
 import os
 
@@ -48,7 +47,9 @@ if uploaded_files:
     if query and st.session_state.index is not None:
         # Get relevant chunks and generate an answer
         top_chunks = retrieve_chunks(query, embed_model, st.session_state.index, st.session_state.chunks)
-        answer = answer_with_roberta(query, top_chunks)
+
+        with st.spinner("🧠 Thinking... generating MBA-style answer..."):
+            answer = answer_with_roberta(query, top_chunks)
 
         # Display answer
         st.markdown("### 🧠 Answer:")
