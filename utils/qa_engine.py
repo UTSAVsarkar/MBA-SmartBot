@@ -2,7 +2,6 @@ import requests
 import os
 import streamlit as st
 
-# Optional: if not using Streamlit secrets
 OPENROUTER_API_KEY = st.secrets["openrouter"]["api_key"]
 
 def answer_with_roberta(question, context_chunks):
